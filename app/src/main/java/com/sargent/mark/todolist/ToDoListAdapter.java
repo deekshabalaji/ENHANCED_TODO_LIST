@@ -1,8 +1,8 @@
 package com.sargent.mark.todolist;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,21 +10,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sargent.mark.todolist.data.Contract;
 import com.sargent.mark.todolist.data.DBHelper;
 
+import static java.security.AccessController.getContext;
+
 /**
- * Created by mark on 7/4/17.
+ * Created on 7/4/17.
  */
 public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHolder> {
-
     private Cursor cursor;
     private ItemClickListener listener;
     private String TAG = "todolistadapter";
     @Override
     public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item, parent, false);
@@ -65,7 +66,6 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
         String category;
         String task;
         long id;
-
         ItemHolder(View view) {
             super(view);
             descr = (TextView) view.findViewById(R.id.description);
@@ -80,11 +80,18 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
             Log.d(TAG, "deleting id: " + id);
             duedate = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE));
             description = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION));
+            //added the category
             category = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_CATEGORIES));
             task = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_TASK));
+            //first it was not updating then i set the checkbox to true once it is done
+            //by default it will false if it is unchecked
+            if(task == "done")
+            {
+                tk.setChecked(true);
+            }
             due.setText(duedate);
             descr.setText(description);
-            ctgry.setText(category);  //setting the textview to strinng
+            ctgry.setText(category);  //setting the textview to string
             holder.itemView.setTag(id);
         }
         @Override

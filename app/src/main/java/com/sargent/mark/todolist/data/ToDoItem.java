@@ -33,7 +33,7 @@ public class ToDoItem {
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
-
+    //getters and setters for those newly added
     public String getCategories() {
         return categories;
     }
@@ -46,7 +46,7 @@ public class ToDoItem {
         return task;
     }
 
-    public void setTask(String status) {
+    public void setTask(String task) {
         this.task = task;
     }
 }

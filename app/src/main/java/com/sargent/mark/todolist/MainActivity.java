@@ -1,5 +1,4 @@
 package com.sargent.mark.todolist;
-
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import com.sargent.mark.todolist.data.Contract;
 import com.sargent.mark.todolist.data.DBHelper;
-
 public class MainActivity extends AppCompatActivity implements AddToDoFragment.OnDialogCloseListener,
         UpdateToDoFragment.OnUpdateDialogCloseListener {
     private RecyclerView rv;
@@ -108,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         return db.query(
                 Contract.TABLE_TODO.TABLE_NAME,
                 null,
-                selection="categories='"+categories+"'",//mentioned the selection on which it has to be made
+                selection = "categories = '" + categories + "'",//mentioned the selection on which it has to be made
                 null,
                 null,
                 null,
@@ -158,10 +156,9 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     }
     @Override
     public void closeUpdateDialog(int year, int month, int day, String description, long id, String categories)
-    {//again adding categories
+    {//again adding categories inorderto update database
         updateToDo(db, year, month, day, description, id, categories);
         //https://stackoverflow.com/questions/1985955/android-simplecursoradapter-doesnt-update-when-database-changes/12384208
-        //database
         adapter.swapCursor(getAllItems(db));
     }
 //implementing the method where the status of my checkbox is checked and it is updated to my sqlite database

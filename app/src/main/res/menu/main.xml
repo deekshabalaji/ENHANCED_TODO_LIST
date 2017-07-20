@@ -11,7 +11,7 @@
     <menu>
             <item
                 android:id="@+id/all"
-                android:title="All" />
+                android:title="all" />
             <item
                 android:id="@+id/fav_place_to_visit"
                 android:title="place_to_visit" />

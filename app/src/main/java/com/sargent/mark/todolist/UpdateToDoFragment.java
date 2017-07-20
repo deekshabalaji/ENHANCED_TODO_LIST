@@ -1,5 +1,4 @@
 package com.sargent.mark.todolist;
-
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
@@ -11,21 +10,16 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 /**
- * Created by mark on 7/5/17.
+ * Created on 7/5/17.
  */
-
 public class UpdateToDoFragment extends DialogFragment {
-
     private EditText toDo;
     private Spinner spinner;   //creating local variable for spinner
     private DatePicker dp;
     private Button add;
     private final String TAG = "updatetodofragment";
     private long id;
-
-
     public UpdateToDoFragment(){}
         //adding categories
     public static UpdateToDoFragment newInstance(int year, int month, int day, String description,
@@ -37,12 +31,12 @@ public class UpdateToDoFragment extends DialogFragment {
         args.putInt("day", day);
         args.putLong("id", id);
         args.putString("description", description);
-        args.putString("category", categories);
+        args.putString("categories", categories);
         //added categories to args
         f.setArguments(args);
         return f;
     }
-//updating the interface with categories
+    //updating the interface with categories
     public interface OnUpdateDialogCloseListener {
         void closeUpdateDialog(int year, int month, int day, String description, long id, String categories);
     }
@@ -75,7 +69,8 @@ public class UpdateToDoFragment extends DialogFragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateToDoFragment.OnUpdateDialogCloseListener activity = (UpdateToDoFragment.OnUpdateDialogCloseListener) getActivity();
+                UpdateToDoFragment.OnUpdateDialogCloseListener activity = (UpdateToDoFragment.OnUpdateDialogCloseListener)
+                        getActivity();
                 Log.d(TAG, "id: " + id);
                 //add spinner to closeupdatedialog
                 activity.closeUpdateDialog(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(),

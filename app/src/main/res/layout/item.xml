@@ -2,13 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
-
+    android:padding="10dp"
+    android:background="@color/color4">
     <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/task"/>
-
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
@@ -17,7 +16,6 @@
         android:text="To do description"
         android:textStyle="bold"
         />
-
     <TextView
         android:id="@+id/dueDate"
         android:layout_width="match_parent"
@@ -25,7 +23,6 @@
         android:textSize="14dp"
         android:text="06-04-2017"
         />
-
     <TextView
         android:id="@+id/category"
         android:layout_width="match_parent"
@@ -33,5 +30,4 @@
         android:textSize="14dp"
         android:text="category"
         />
-
 </LinearLayout>

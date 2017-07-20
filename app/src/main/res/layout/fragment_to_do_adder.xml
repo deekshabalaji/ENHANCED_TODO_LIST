@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
+    android:background="@color/color3"
     android:weightSum="1"
     tools:context=".AddToDoFragment">
     <EditText
@@ -13,7 +14,9 @@
         android:layout_height="0dip"
         android:layout_weight=".1"
         android:layout_marginBottom="8dp"
-        android:hint="Enter To Do" />
+        android:hint="Enter To Do"
+        android:textStyle="bold|italic"
+        />
     <!--Adding spinner -->
     <Spinner
         android:id="@+id/categories"
@@ -25,11 +28,15 @@
         android:id="@+id/datePicker"
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight=".8"/>
+        android:layout_weight=".8"
+        android:background="#FBE9E7"/>
     <Button
         android:id="@+id/add"
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight=".1"
-        android:text="Add"/>
+        android:text="Add"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="#B0BEC5"/>
 </LinearLayout>
